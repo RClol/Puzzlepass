@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Karla:ital,wght@0,200..800;1,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    color: #172033;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(238, 191, 109, 0.652),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #B91C1C 0%,
+            #e35e11 45%,
+            #eeaa21 100%
+        );
+}
+
+
+/*navbar*/
+
+.navbar {
+    width: calc(100% - 50px);
+    max-width: 1200px;
+
+    margin: 20px auto;
+
+    padding: 15px 18px 15px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.101);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(170, 80, 50, 0.441);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/*logo*/
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+
+    color: #F59E0B;
+
+    text-decoration: none;
+
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #f55d0b;
+}
+
+
+/*navigation*/
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+nav a {
+    padding: 10px 16px;
+
+    color: #F59E0B;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    background: #F59E0B;
+    color: #1C1917;
+}
+
+nav a.active {
+    color: #1C1917;
+    background: #F59E0B;
+}
+
+
+/*login*/
+
+.login-button {
+    padding: 10px 19px;
+
+    background: #F59E0B;
+
+    color: #1C1917;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.login-button:hover {
+    background: #F59E0B;
+
+    transform: translateY(-1px);
+}
+
+
+/*main*/
+
+.main {
+    min-height: calc(100vh - 120px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 60px 20px 100px;
+}
+
+.main-content {
+    max-width: 750px;
+}
+
+
+
+
+/*heading*/
+
+.main h1 {
+    font-size: clamp(48px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 25px;
+
+    color: #F59E0B;
+}
+
+.main h1 span {
+    background: linear-gradient(
+        20deg,
+        #F59E0B,
+        #f8d152de
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/*description*/
+
+.main p {
+    max-width: 560px;
+
+    margin: 0 auto 35px;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #1C1917;
+}
+
+
+/*buttons*/
+
+.main-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 14px 24px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+
+/*primary*/
+
+.primary-button {
+    background: #F59E0B;
+
+    color: #1C1917;
+
+    box-shadow:
+        0 8px 25px rgba(103, 129, 150, 0.153);
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(126, 149, 171, 0.244);
+}
+
+
+/*secondary*/
+
+.secondary-button {
+    background: transparent;
+
+    color: #F59E0B;
+
+    border: 1px solid rgba(255, 255, 255, 0.101);
+
+    box-shadow:
+        0 10px 35px rgba(170, 80, 50, 0.441);
+
+    backdrop-filter: blur(15px);
+}
+
+.secondary-button:hover {
+    background: #B91C1C;
+
+    color: #F59E0B;
+
+    transform: translateY(-2px);
+}
+
+
+/*footer*/
+
+footer {
+    text-align: center;
+
+    padding: 25px;
+
+    color: #8290a5;
+
+    font-size: 13px;
+}
+
+
+/*mobile*/
+
+@media (max-width: 650px) {
+
+    .navbar {
+        width: calc(100% - 25px);
+
+        padding: 12px 15px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .main {
+        padding-top: 30px;
+    }
+
+    .main h1 {
+        letter-spacing: -2px;
+    }
+
+    .main p {
+        font-size: 16px;
+    }
+}
+```
