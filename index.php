@@ -18,8 +18,8 @@
 
         <nav>
             <a href="index.php" class="active">Home</a>
-            <a href="#">Escape rooms</a>
-            <a href="#">Medewerker portaal</a>
+            <a href="escaperooms.php">Escape rooms</a>
+            <a href="workerportal.php">Medewerker portaal</a>
         </nav>
 
         <a href="#" class="login-button">Inloggen</a>
