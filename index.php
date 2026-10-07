@@ -19,6 +19,7 @@
         <nav>
             <a href="index.php" class="active">Home</a>
             <a href="escaperooms.php">Escape rooms</a>
+            <a href="register-worker.php">Medewerker Registreren</a>
             <a href="workerportal.php">Medewerker portaal</a>
         </nav>
 
