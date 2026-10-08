@@ -287,7 +287,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         </nav>
 
-        <a href="#" class="login-button">
+        <a href="login.php" class="login-button">
             Inloggen
         </a>
 
