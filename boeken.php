@@ -12,7 +12,7 @@ $date = $_GET["date"] ?? "";
 $time = $_GET["time"] ?? "";
 $price = $_GET["price"] ?? "";
 
-/*convert dates*/
+//convert dates
 
 $months = [
     "januari" => "01",
@@ -51,11 +51,7 @@ if ($date) {
     }
 }
 
-/*
-|--------------------------------------------------------------------------
-| FORM SUBMISSION
-|--------------------------------------------------------------------------
-*/
+//submit form
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -70,11 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $phone = trim($_POST["phone"] ?? "");
     $players = (int) ($_POST["players"] ?? 0);
 
-    /*
-    |--------------------------------------------------------------------------
-    | VALIDATION
-    |--------------------------------------------------------------------------
-    */
+    //valid check
 
     if (
         empty($room) ||
@@ -102,11 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         try {
 
-            /*
-            |--------------------------------------------------------------------------
-            | CHECK IF ROOM IS BLOCKED
-            |--------------------------------------------------------------------------
-            */
+            //check room if the room is blocked
 
             $bookingStart = $time;
 
@@ -141,11 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             } else {
 
-                /*
-                |--------------------------------------------------------------------------
-                | CHECK IF SLOT IS ALREADY BOOKED
-                |--------------------------------------------------------------------------
-                */
+                //check if slot is 
 
                 $checkSql = "
                     SELECT id

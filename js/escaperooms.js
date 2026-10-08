@@ -10,9 +10,7 @@ const summaryPrice =
 let selectedRoom = rooms[0];
 
 
-/*
- * Escape room selecteren
- */
+//Escape room selecteren
 
 rooms.forEach(room => {
 
@@ -22,9 +20,9 @@ rooms.forEach(room => {
 
     button.addEventListener("click", () => {
 
-        /*
-         * Alle kamers resetten
-         */
+        
+         //Alle kamers resetten
+         
 
         rooms.forEach(item => {
 
@@ -41,9 +39,9 @@ rooms.forEach(room => {
         });
 
 
-        /*
-         * Gekozen kamer selecteren
-         */
+        
+         //Gekozen kamer selecteren
+         
 
         room.classList.add("selected");
 
@@ -53,16 +51,16 @@ rooms.forEach(room => {
             "Geselecteerd ✓";
 
 
-        /*
-         * Geselecteerde kamer opslaan
-         */
+        
+         //Geselecteerde kamer opslaan
+         
 
         selectedRoom = room;
 
 
-        /*
-         * Summary aanpassen
-         */
+        
+         //Summary aanpassen
+         
 
         summaryRoom.textContent =
             room.dataset.room;
@@ -80,9 +78,7 @@ rooms.forEach(room => {
 });
 
 
-/* =========================================
-   KALENDER
-========================================= */
+//kalender
 
 const calendarDays =
     document.getElementById(
@@ -95,37 +91,30 @@ const monthTitle =
     );
 
 
-/*
- * Begin bij oktober 2026
- */
+//Begin bij oktober 2026
+ 
 
 let calendarDate =
     new Date(2026, 9, 1);
 
 
-/*
- * Geselecteerde datum
- */
 
 let selectedDate = null;
 
 
-/* =========================================
-   KALENDER RENDEREN
-========================================= */
 
 function renderCalendar() {
 
-    /*
-     * Oude kalender leegmaken
-     */
+    
+     //Oude kalender leegmaken
+     
 
     calendarDays.innerHTML = "";
 
 
-    /*
-     * Jaar en maand ophalen
-     */
+    
+     //Jaar en maand ophalen
+     
 
     const year =
         calendarDate.getFullYear();
@@ -134,9 +123,9 @@ function renderCalendar() {
         calendarDate.getMonth();
 
 
-    /*
-     * Eerste en laatste dag
-     */
+    
+     //Eerste en laatste dag
+     
 
     const firstDay =
         new Date(
@@ -160,7 +149,7 @@ function renderCalendar() {
      * zondag = 0
      * maandag = 1
      *
-     * Wij gebruiken:
+     * hier gebruikt:
      * maandag = 0
      */
 
@@ -174,9 +163,9 @@ function renderCalendar() {
             : startingDay - 1;
 
 
-    /*
-     * Maandnaam tonen
-     */
+    
+      //naam van de maand laten zien
+     
 
     monthTitle.textContent =
         calendarDate.toLocaleDateString(
@@ -188,9 +177,9 @@ function renderCalendar() {
         );
 
 
-    /*
-     * Lege vakken voor eerste week
-     */
+    
+     //Lege vakken voor eerste week
+    
 
     for (
         let i = 0;
@@ -214,9 +203,9 @@ function renderCalendar() {
     }
 
 
-    /*
-     * Vandaag bepalen
-     */
+    
+     //Vandaag bepalen
+     
 
     const today =
         new Date();
@@ -229,9 +218,9 @@ function renderCalendar() {
     );
 
 
-    /*
-     * Alle dagen maken
-     */
+    
+     //Alle dagen maken
+     
 
     for (
         let day = 1;
@@ -252,9 +241,9 @@ function renderCalendar() {
             day;
 
 
-        /*
-         * Datum van deze dag
-         */
+        
+         //Datum van deze dag
+         
 
         const current =
             new Date(
@@ -264,10 +253,9 @@ function renderCalendar() {
             );
 
 
-        /*
-         * Dagen uit het verleden
-         * uitschakelen
-         */
+        
+         //Dagen uit het verleden uitschakelen
+        
 
         if (current < today) {
 
@@ -281,9 +269,9 @@ function renderCalendar() {
         }
 
 
-        /*
-         * Geselecteerde datum markeren
-         */
+        
+         //gekozen datum markeren
+         
 
         if (
             selectedDate &&
@@ -298,9 +286,9 @@ function renderCalendar() {
         }
 
 
-        /*
-         * Datum aanklikken
-         */
+        
+         
+         
 
         dayButton.addEventListener(
             "click",
@@ -310,17 +298,16 @@ function renderCalendar() {
                     current;
 
 
-                /*
-                 * Kalender opnieuw tekenen
-                 * zodat selectie zichtbaar wordt
-                 */
+                
+                 //Kalender opnieuw tekenen zodat keuze zichtbaar wordt
+                 
 
                 renderCalendar();
 
 
-                /*
-                 * Summary updaten
-                 */
+                
+                 //updaten
+                 
 
                 updateBooking();
 
@@ -337,9 +324,7 @@ function renderCalendar() {
 }
 
 
-/* =========================================
-   VORIGE MAAND
-========================================= */
+//vorige maand
 
 const previousMonth =
     document.getElementById(
@@ -362,9 +347,7 @@ previousMonth.addEventListener(
 );
 
 
-/* =========================================
-   VOLGENDE MAAND
-========================================= */
+//Komende maand
 
 const nextMonth =
     document.getElementById(
@@ -387,9 +370,7 @@ nextMonth.addEventListener(
 );
 
 
-/* =========================================
-   TIJDSLOTS
-========================================= */
+//timeslots
 
 const timeSlots =
     document.querySelectorAll(
@@ -400,9 +381,7 @@ const timeSlots =
 let selectedTime = null;
 
 
-/*
- * Tijdslot selecteren
- */
+//timeslot select
 
 timeSlots.forEach(slot => {
 
@@ -410,9 +389,7 @@ timeSlots.forEach(slot => {
         "click",
         () => {
 
-            /*
-             * Alle tijdslots deselecteren
-             */
+            //deselect all
 
             timeSlots.forEach(item => {
 
@@ -423,26 +400,20 @@ timeSlots.forEach(slot => {
             });
 
 
-            /*
-             * Geselecteerde tijd markeren
-             */
+            //mark selected
 
             slot.classList.add(
                 "selected"
             );
 
 
-            /*
-             * Tijd opslaan
-             */
+            //save time
 
             selectedTime =
                 slot.dataset.time;
 
 
-            /*
-             * Summary updaten
-             */
+            //update
 
             updateBooking();
 
@@ -452,9 +423,7 @@ timeSlots.forEach(slot => {
 });
 
 
-/* =========================================
-   BOOKING SUMMARY
-========================================= */
+// Summary
 
 function updateBooking() {
 
@@ -474,9 +443,7 @@ function updateBooking() {
         );
 
 
-    /*
-     * DATUM
-     */
+    //date
 
     if (selectedDate) {
 
@@ -499,9 +466,7 @@ function updateBooking() {
     }
 
 
-    /*
-     * TIJD
-     */
+    //time
 
     if (selectedTime) {
 
@@ -517,13 +482,7 @@ function updateBooking() {
     }
 
 
-    /*
-     * BOOKING BUTTON
-     *
-     * Alleen actief wanneer:
-     * - datum gekozen is
-     * - tijd gekozen is
-     */
+    //button alleen actief wanneer: datum gekozen is, tijd gekozen is
 
     bookingButton.disabled =
         !selectedDate ||
@@ -532,9 +491,6 @@ function updateBooking() {
 }
 
 
-/* =========================================
-   DOORGAAN NAAR BOEKEN
-========================================= */
 
 const bookingButton =
     document.getElementById(
@@ -560,25 +516,19 @@ bookingButton.addEventListener(
         }
 
 
-        /*
-         * Geselecteerde escape room
-         */
+        //gekozen escape room
 
         const roomName =
             selectedRoom.dataset.room;
 
 
-        /*
-         * Prijs
-         */
+        //prijs
 
         const price =
             selectedRoom.dataset.price;
 
 
-        /*
-         * Datum omzetten naar Nederlandse tekst
-         */
+        // datum naar nl
 
         const date =
             selectedDate.toLocaleDateString(
@@ -592,9 +542,7 @@ bookingButton.addEventListener(
             );
 
 
-        /*
-         * URL naar boeken.php
-         */
+        //link naar boekenphp
 
         const url =
             "boeken.php" +
@@ -616,9 +564,7 @@ bookingButton.addEventListener(
             );
 
 
-        /*
-         * Naar booking pagina
-         */
+        
 
         window.location.href =
             url;
@@ -627,15 +573,10 @@ bookingButton.addEventListener(
 );
 
 
-/* =========================================
-   KALENDER STARTEN
-========================================= */
 
 renderCalendar();
 
 
-/*
- * Booking summary initialiseren
- */
+
 
 updateBooking();
