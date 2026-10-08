@@ -221,6 +221,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 Register Worker
             </button>
 
+            <a href="index.php" class="back-button">
+                Back to home
+            </a>
+
         </form>
 
 
