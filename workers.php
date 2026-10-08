@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION["user_id"])) {
-    header("Location: worker.php");
+    header("Location: workers.php");
     exit;
 }
 
@@ -85,7 +85,7 @@ if (!isset($_SESSION["user_id"])) {
                     inclusief aankomsttijd en status.
                 </p>
 
-                <a href="#">
+                <a href="workerdayplans.php">
                     Dagplanning bekijken
                 </a>
 
@@ -103,7 +103,7 @@ if (!isset($_SESSION["user_id"])) {
                     onderhoudsblokkades.
                 </p>
 
-                <a href="#">
+                <a href="workersedit.php">
                     Kamers beheren
                 </a>
 
@@ -121,7 +121,7 @@ if (!isset($_SESSION["user_id"])) {
                     betalingen als ontvangen.
                 </p>
 
-                <a href="#">
+                <a href="bookingsedit.php">
                     Reserveringen beheren
                 </a>
 

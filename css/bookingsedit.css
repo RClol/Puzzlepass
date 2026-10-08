@@ -1,0 +1,157 @@
+.bookings-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+}
+
+
+/* Terug-link */
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    text-decoration: none;
+}
+
+
+/* Pagina header */
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h2 {
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    margin: 0;
+}
+
+
+/* Reserveringen sectie */
+
+.bookings-section {
+    width: 100%;
+}
+
+.bookings-section h3 {
+    margin-bottom: 20px;
+}
+
+
+/* Lijst */
+
+.bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* Reservering */
+
+.booking-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+
+    padding: 22px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    background: #fff;
+}
+
+
+/* Informatie */
+
+.booking-info {
+    flex: 1;
+}
+
+.booking-info h4 {
+    margin: 0 0 15px;
+    font-size: 20px;
+}
+
+.booking-info p {
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+
+/* Acties */
+
+.booking-actions {
+    flex-shrink: 0;
+}
+
+
+/* Verwijderen */
+
+.remove-link {
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    background: #d32f2f;
+    color: #fff;
+
+    transition: opacity 0.2s ease;
+}
+
+.remove-link:hover {
+    opacity: 0.8;
+}
+
+
+/* Geen reserveringen */
+
+.empty-bookings {
+    padding: 25px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.empty-bookings p {
+    margin: 0;
+}
+
+
+/* ==============================
+   MOBIEL
+   ============================== */
+
+@media (max-width: 700px) {
+
+    .bookings-page {
+        padding: 20px 15px 40px;
+    }
+
+    .booking-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .booking-actions {
+        width: 100%;
+    }
+
+    .remove-link {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+}
