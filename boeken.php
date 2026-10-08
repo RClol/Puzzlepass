@@ -104,82 +104,122 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             /*
             |--------------------------------------------------------------------------
-            | CHECK IF SLOT IS ALREADY BOOKED
+            | CHECK IF ROOM IS BLOCKED
             |--------------------------------------------------------------------------
             */
 
-            $checkSql = "
+            $bookingStart = $time;
+
+            $bookingEnd = date(
+                "H:i:s",
+                strtotime($bookingStart) + (90 * 60)
+            );
+
+            $blockSql = "
                 SELECT id
-                FROM bookings
+                FROM room_blocks
                 WHERE room_name = :room
-                AND booking_date = :booking_date
-                AND start_time = :start_time
+                AND block_date = :booking_date
+                AND start_time < :booking_end
+                AND end_time > :booking_start
                 LIMIT 1
             ";
 
-            $checkStmt = $pdo->prepare($checkSql);
+            $blockStmt = $pdo->prepare($blockSql);
 
-            $checkStmt->execute([
+            $blockStmt->execute([
                 ":room" => $room,
                 ":booking_date" => $bookingDate,
-                ":start_time" => $time
+                ":booking_start" => $bookingStart,
+                ":booking_end" => $bookingEnd
             ]);
 
-            if ($checkStmt->fetch()) {
+            if ($blockStmt->fetch()) {
 
                 $bookingError =
-                    "Dit tijdslot is helaas al geboekt. Kies een ander tijdstip.";
+                    "Deze kamer is op dit tijdstip geblokkeerd wegens onderhoud. Kies een ander tijdstip.";
 
             } else {
 
                 /*
                 |--------------------------------------------------------------------------
-                | SAVE BOOKING
+                | CHECK IF SLOT IS ALREADY BOOKED
                 |--------------------------------------------------------------------------
                 */
 
-                $insertSql = "
-                    INSERT INTO bookings (
-                        room_name,
-                        booking_date,
-                        start_time,
-                        customer_first_name,
-                        customer_last_name,
-                        customer_email,
-                        customer_phone,
-                        players,
-                        price,
-                        status
-                    )
-                    VALUES (
-                        :room,
-                        :booking_date,
-                        :start_time,
-                        :first_name,
-                        :last_name,
-                        :email,
-                        :phone,
-                        :players,
-                        :price,
-                        'confirmed'
-                    )
+                $checkSql = "
+                    SELECT id
+                    FROM bookings
+                    WHERE room_name = :room
+                    AND booking_date = :booking_date
+                    AND start_time = :start_time
+                    LIMIT 1
                 ";
 
-                $insertStmt = $pdo->prepare($insertSql);
+                $checkStmt = $pdo->prepare($checkSql);
 
-                $insertStmt->execute([
+                $checkStmt->execute([
                     ":room" => $room,
                     ":booking_date" => $bookingDate,
-                    ":start_time" => $time,
-                    ":first_name" => $firstName,
-                    ":last_name" => $lastName,
-                    ":email" => $email,
-                    ":phone" => $phone,
-                    ":players" => $players,
-                    ":price" => $price
+                    ":start_time" => $time
                 ]);
 
-                $bookingSuccess = true;
+                if ($checkStmt->fetch()) {
+
+                    $bookingError =
+                        "Dit tijdslot is helaas al geboekt. Kies een ander tijdstip.";
+
+                } else {
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | SAVE BOOKING
+                    |--------------------------------------------------------------------------
+                    */
+
+                    $insertSql = "
+                        INSERT INTO bookings (
+                            room_name,
+                            booking_date,
+                            start_time,
+                            customer_first_name,
+                            customer_last_name,
+                            customer_email,
+                            customer_phone,
+                            players,
+                            price,
+                            status
+                        )
+                        VALUES (
+                            :room,
+                            :booking_date,
+                            :start_time,
+                            :first_name,
+                            :last_name,
+                            :email,
+                            :phone,
+                            :players,
+                            :price,
+                            'confirmed'
+                        )
+                    ";
+
+                    $insertStmt = $pdo->prepare($insertSql);
+
+                    $insertStmt->execute([
+                        ":room" => $room,
+                        ":booking_date" => $bookingDate,
+                        ":start_time" => $time,
+                        ":first_name" => $firstName,
+                        ":last_name" => $lastName,
+                        ":email" => $email,
+                        ":phone" => $phone,
+                        ":players" => $players,
+                        ":price" => $price
+                    ]);
+
+                    $bookingSuccess = true;
+                }
             }
 
         } catch (PDOException $e) {
