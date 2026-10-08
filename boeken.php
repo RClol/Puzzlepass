@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $lastName = trim($_POST["lastname"] ?? "");
     $email = trim($_POST["email"] ?? "");
     $phone = trim($_POST["phone"] ?? "");
-    $players = (int)($_POST["players"] ?? 0);
+    $players = (int) ($_POST["players"] ?? 0);
 
     /*
     |--------------------------------------------------------------------------
@@ -211,22 +211,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Boeken - Puzzlepass</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+    <link rel="stylesheet" href="css/style.css">
 
-    <link
-        rel="stylesheet"
-        href="css/boeken.css"
-    >
+    <link rel="stylesheet" href="css/boeken.css">
 
 </head>
 
@@ -236,10 +227,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <header class="navbar">
 
-        <a
-            href="index.php"
-            class="logo"
-        >
+        <a href="index.php" class="logo">
             Puzzle<span>pass</span>
         </a>
 
@@ -249,10 +237,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 Home
             </a>
 
-            <a
-                href="escaperooms.php"
-                class="active"
-            >
+            <a href="escaperooms.php" class="active">
                 Escape rooms
             </a>
 
@@ -266,15 +251,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         </nav>
 
-        <a
-            href="#"
-            class="login-button"
-        >
+        <a href="#" class="login-button">
             Inloggen
         </a>
 
     </header>
-
 
     <main>
 
@@ -304,7 +285,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </section>
 
-
             <section class="checkout">
 
                 <aside class="order-summary">
@@ -316,7 +296,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <h2>
                         <?= htmlspecialchars($room) ?>
                     </h2>
-
 
                     <div class="summary-line">
 
@@ -330,7 +309,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-
                     <div class="summary-line">
 
                         <span>
@@ -342,7 +320,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </strong>
 
                     </div>
-
 
                     <div class="summary-line">
 
@@ -356,9 +333,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-
                     <div class="summary-divider"></div>
-
 
                     <div class="price-row">
 
@@ -368,7 +343,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         <strong>
                             €<?= number_format(
-                                (float)$price,
+                                (float) $price,
                                 2,
                                 ",",
                                 "."
@@ -376,7 +351,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </strong>
 
                     </div>
-
 
                     <div class="secure-message">
 
@@ -388,11 +362,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-
-                    <a
-                        href="index.php"
-                        class="change-booking"
-                    >
+                    <a href="index.php" class="change-booking">
                         ← Terug naar home
                     </a>
 
@@ -400,9 +370,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </section>
 
-
         <?php else: ?>
-
 
             <!-- HEADER -->
 
@@ -428,22 +396,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </section>
 
-
             <?php if ($bookingError): ?>
 
                 <div class="booking-error">
-
-                    <?= htmlspecialchars($bookingError) ?>
-
+                    ⚠ <?= htmlspecialchars($bookingError) ?>
                 </div>
 
             <?php endif; ?>
 
-
             <!-- BOOKING -->
 
             <section class="checkout">
-
 
                 <!-- LEFT -->
 
@@ -469,13 +432,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-
                     <form
                         id="bookingForm"
                         method="POST"
                         action="boeken.php"
                     >
-
 
                         <!-- BOOKING DATA -->
 
@@ -503,9 +464,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             value="<?= htmlspecialchars($price) ?>"
                         >
 
-
                         <div class="form-row">
-
 
                             <div class="form-group">
 
@@ -522,7 +481,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 >
 
                             </div>
-
 
                             <div class="form-group">
 
@@ -542,7 +500,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         </div>
 
-
                         <div class="form-group">
 
                             <label for="email">
@@ -559,7 +516,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         </div>
 
-
                         <div class="form-group">
 
                             <label for="phone">
@@ -575,7 +531,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             >
 
                         </div>
-
 
                         <div class="form-group">
 
@@ -613,7 +568,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         </div>
 
-
                         <!-- TERMS -->
 
                         <label class="terms">
@@ -630,7 +584,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                         </label>
 
-
                         <button
                             type="submit"
                             class="confirm-button"
@@ -638,11 +591,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             Boeking bevestigen →
                         </button>
 
-
                     </form>
 
                 </div>
-
 
                 <!-- RIGHT -->
 
@@ -652,7 +603,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         JOUW BOEKING
                     </p>
 
-
                     <h2 id="roomName">
 
                         <?= htmlspecialchars(
@@ -660,7 +610,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         ) ?>
 
                     </h2>
-
 
                     <div class="summary-line">
 
@@ -678,7 +627,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-
                     <div class="summary-line">
 
                         <span>
@@ -695,7 +643,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-
                     <div class="summary-line">
 
                         <span>
@@ -707,7 +654,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </strong>
 
                     </div>
-
 
                     <div class="summary-line">
 
@@ -721,9 +667,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     </div>
 
-
                     <div class="summary-divider"></div>
-
 
                     <div class="price-row">
 
@@ -734,7 +678,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <strong id="bookingPrice">
 
                             €<?= number_format(
-                                (float)($price ?: 29.50),
+                                (float) ($price ?: 29.50),
                                 2,
                                 ",",
                                 "."
@@ -743,7 +687,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </strong>
 
                     </div>
-
 
                     <div class="secure-message">
 
@@ -754,7 +697,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         </p>
 
                     </div>
-
 
                     <a
                         href="escaperooms.php"
@@ -771,7 +713,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     </main>
 
-
     <footer>
 
         <p>
@@ -779,7 +720,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </p>
 
     </footer>
-
 
     <!-- JAVASCRIPT -->
 
