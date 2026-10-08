@@ -3,22 +3,25 @@
 session_start();
 
 if (!isset($_SESSION["user_id"])) {
-    header("Location: workerportal.php");
+    header("Location: worker.php");
     exit;
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Worker Dashboard | Escape Room</title>
+    <title>Medewerker Portaal | Puzzlepass</title>
 
     <link rel="stylesheet" href="css/workers.css">
 
@@ -28,15 +31,29 @@ if (!isset($_SESSION["user_id"])) {
 
     <header>
 
-        <h1>Escape Room Worker Portal</h1>
+        <div>
+
+            <h1>
+                Puzzlepass
+            </h1>
+
+            <p>
+                Medewerker portaal
+            </p>
+
+        </div>
+
 
         <div>
 
             <span>
-                Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>
+                Welkom,
+                <?= htmlspecialchars($_SESSION["username"]) ?>
             </span>
 
-            <a href="logout.php">Log Out</a>
+            <a href="logout.php">
+                Uitloggen
+            </a>
 
         </div>
 
@@ -45,69 +62,71 @@ if (!isset($_SESSION["user_id"])) {
 
     <main>
 
-        <h2>Worker Dashboard</h2>
+        <h2>
+            Medewerker dashboard
+        </h2>
 
         <p>
-            Welcome to the Escape Room staff portal.
+            Beheer reserveringen, kamers en de dagelijkse planning.
         </p>
 
 
         <section>
 
+
             <div class="card">
 
-                <h3>Bookings</h3>
+                <h3>
+                    Dagplanning
+                </h3>
 
                 <p>
-                    View and manage escape room bookings.
+                    Bekijk de reserveringen van vandaag,
+                    inclusief aankomsttijd en status.
                 </p>
 
-                <a href="#">View Bookings</a>
+                <a href="#">
+                    Dagplanning bekijken
+                </a>
 
             </div>
 
 
             <div class="card">
 
-                <h3>Customers</h3>
+                <h3>
+                    Kamers beheren
+                </h3>
 
                 <p>
-                    View customer information.
+                    Beheer kamers, openingstijden en
+                    onderhoudsblokkades.
                 </p>
 
-                <a href="#">View Customers</a>
+                <a href="#">
+                    Kamers beheren
+                </a>
 
             </div>
 
 
             <div class="card">
 
-                <h3>Rooms</h3>
+                <h3>
+                    Reserveringen
+                </h3>
 
                 <p>
-                    View escape room information.
+                    Bevestig reserveringen en markeer
+                    betalingen als ontvangen.
                 </p>
 
-                <a href="#">View Rooms</a>
+                <a href="#">
+                    Reserveringen beheren
+                </a>
 
             </div>
 
-
-            <div class="card">
-
-                <h3>My Account</h3>
-
-                <p>
-                    Username:
-                    <?php echo htmlspecialchars($_SESSION["username"]); ?>
-                </p>
-
-                <p>
-                    Email:
-                    <?php echo htmlspecialchars($_SESSION["email"]); ?>
-                </p>
-
-            </div>
 
         </section>
 
