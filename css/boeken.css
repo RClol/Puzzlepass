@@ -118,9 +118,6 @@
     margin-top: 4px;
 }
 
-.second-step {
-    margin-top: 45px;
-}
 
 
 /* =========================================
@@ -188,80 +185,6 @@
     cursor: pointer;
 }
 
-
-/* =========================================
-   PAYMENT
-========================================= */
-
-.payment-options {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-.payment-option {
-    min-height: 68px;
-
-    padding: 14px 16px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    background: #24211F;
-
-    border: 1px solid #403C39;
-
-    border-radius: 7px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.payment-option:has(input:checked) {
-    border-color: #F59E0B;
-}
-
-.payment-option input {
-    accent-color: #F59E0B;
-}
-
-.payment-content {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 4px;
-
-    flex: 1;
-}
-
-.payment-content strong {
-    color: #D6D3D1;
-
-    font-size: 13px;
-}
-
-.payment-content span {
-    color: #78716C;
-
-    font-size: 11px;
-}
-
-.payment-check {
-    color: #F59E0B;
-
-    display: none;
-}
-
-.payment-option:has(input:checked) .payment-check {
-    display: block;
-}
 
 
 /* =========================================
