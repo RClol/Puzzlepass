@@ -20,10 +20,9 @@
             <a href="index.php" class="active">Home</a>
             <a href="escaperooms.php">Escape rooms</a>
             <a href="register-worker.php">Medewerker Registreren</a>
-            <a href="workerportal.php">Medewerker portaal</a>
         </nav>
 
-        <a href="#" class="login-button">Inloggen</a>
+        <a href="workerportal.php" class="login-button">Inloggen</a>
     </header>
 
 
@@ -45,11 +44,11 @@
                 </p>
 
                 <div class="main-buttons">
-                    <a href="#" class="primary-button">
+                    <a href="escaperooms.php" class="primary-button">
                         Vind een escape room →
                     </a>
 
-                    <a href="#" class="secondary-button">
+                    <a href="workerportal.php" class="secondary-button">
                         Bekijk boekingen
                     </a>
                 </div>

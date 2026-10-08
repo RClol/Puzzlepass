@@ -23,10 +23,9 @@
             <a href="index.php">Home</a>
             <a href="escaperooms.php" class="active">Escape rooms</a>
             <a href="register-worker.php">Medewerker Registreren</a>
-            <a href="workerportal.php">Medewerker portaal</a>
         </nav>
 
-        <a href="#" class="login-button">
+        <a href="workerportal.php" class="login-button">
             Inloggen
         </a>
 
